@@ -13,9 +13,9 @@ namespace DapperDemoData.Data
 {
     public class DataAccess : IDataAccess
     {
-        private readonly IConfigurationManager _config;
+        private readonly IConfiguration _config;
 
-        public DataAccess(IConfigurationManager config)
+        public DataAccess(IConfiguration config)
         {
             _config = config;
         }
