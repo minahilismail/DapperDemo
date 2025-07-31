@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace DapperDemoData.Data
 {
-    public class DataAccess
+    public class DataAccess : IDataAccess
     {
         private readonly IConfigurationManager _config;
 
