@@ -1,3 +1,4 @@
+using DapperDemoAPI.Endpoints;
 using DapperDemoData.Data;
 using DapperDemoData.Repository;
 
@@ -5,12 +6,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+//builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddTransient<IDataAccess, DataAccess>();
-builder.Services.AddTransient<IPersonRepository, PersonRepository>();
+builder.Services.AddScoped<IDataAccess, DataAccess>(); 
+builder.Services.AddScoped<IPersonRepository, PersonRepository>(); 
 
 var app = builder.Build();
 
@@ -23,8 +24,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
+//app.UseAuthorization();
 
-app.MapControllers();
+//app.MapControllers();
+app.MapPersonEndpoints();
 
 app.Run();

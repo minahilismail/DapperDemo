@@ -32,18 +32,6 @@ namespace DapperDemoData.Data
         {
             using IDbConnection connection = new SqlConnection(_config.GetConnectionString(connectionId));
             await connection.ExecuteAsync(query, parameters);
-            //connection.Open();
-            //using IDbTransaction transaction = connection.BeginTransaction();
-            //try
-            //{
-            //    await connection.ExecuteAsync(query, parameters, transaction);
-            //    transaction.Commit();
-            //}
-            //catch
-            //{
-            //    transaction.Rollback();
-            //    throw;
-            //}
         }
     }
 }
